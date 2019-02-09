@@ -2,13 +2,13 @@ package com.example.demo.app.bootstrap;
 
 import java.util.Arrays;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.app.model.Employee;
 import com.example.demo.app.repository.EmployeeRepository;
+
 
 @Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{

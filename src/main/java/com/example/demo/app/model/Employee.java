@@ -1,10 +1,10 @@
 package com.example.demo.app.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 //@Table(name="EMPLOYEE_TABLE")
@@ -12,7 +12,11 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	
+
 	private Integer id;
+	
+	@Column(name="EMP_FIRST_NAME")
 	private String firstName;
 	private String lastName;
 	private double salary;
