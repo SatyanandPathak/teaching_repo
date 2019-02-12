@@ -1,5 +1,6 @@
 package com.example.demo.app.bootstrap;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import org.springframework.context.ApplicationListener;
@@ -29,10 +30,10 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 	}
 	
 	private void initData(){
-		Employee emp1 = new Employee(1, "Jon", "Gaskar", 1000.00);
-		Employee emp2 = new Employee(2, "Prasad", "Kanamatreddy", 1300.00);
-		Employee emp3 = new Employee(3, "Marcus", "Meadley", 600.00);
-		Employee emp4 = new Employee(4, "Travis", "Head", 1800.00);
+		Employee emp1 = new Employee(1, "Jon", "Gaskar", new BigDecimal(1000.00));
+		Employee emp2 = new Employee(2, "Prasad", "Kanamatreddy", new BigDecimal(1400.00));
+		Employee emp3 = new Employee(3, "Marcus", "Meadley", new BigDecimal(1600.00));
+		Employee emp4 = new Employee(4, "Travis", "Head", new BigDecimal(1800.00));
 		
 		empRepo.saveAll(Arrays.asList(emp1, emp2, emp3, emp4));
 	}

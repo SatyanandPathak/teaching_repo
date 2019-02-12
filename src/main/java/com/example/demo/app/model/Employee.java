@@ -1,10 +1,15 @@
 package com.example.demo.app.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 
 @Entity
 //@Table(name="EMPLOYEE_TABLE")
@@ -17,9 +22,14 @@ public class Employee {
 	private Integer id;
 	
 	@Column(name="EMP_FIRST_NAME")
+	
+	@Size(min=2, message="First name should have minimum 2 characters")
 	private String firstName;
 	private String lastName;
-	private double salary;
+	
+	@DecimalMin(value="1000.00", message="Minimum Salary is 1000.00")
+	@Digits(integer=8, fraction=2, message="Salary not in correct format")
+	private BigDecimal salary;
 	
 	
 	public Employee() {
@@ -28,7 +38,7 @@ public class Employee {
 	}
 
 
-	public Employee(Integer id, String firstName, String lastName, double salary) {
+	public Employee(Integer id, String firstName, String lastName, BigDecimal salary) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -67,12 +77,12 @@ public class Employee {
 	}
 
 
-	public double getSalary() {
+	public BigDecimal getSalary() {
 		return salary;
 	}
 
 
-	public void setSalary(double salary) {
+	public void setSalary(BigDecimal salary) {
 		this.salary = salary;
 	}
 
